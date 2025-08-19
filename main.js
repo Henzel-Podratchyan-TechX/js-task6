@@ -10,8 +10,13 @@ function saveOnLocal() {
 
     const submit = document.getElementById("submit");
 
-    name.value = localStorage.getItem("name");
-    email.value = localStorage.getItem("email");
+    const storedName = localStorage.getItem("name");
+    const storedEmail = localStorage.getItem("email");
+
+    if (storedName !== null && storedEmail !== null) {
+        console.log(storedName);
+        console.log(storedEmail);
+    }
 
     submit.addEventListener("click", () => {
         if (name.value === "" || email.value === "") {
