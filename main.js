@@ -5,14 +5,19 @@ function countdown() {
     const countdown = document.getElementById('countdown');
 
     startBtn.addEventListener('click', () => {
-        let time = 6;
-        const interval = setInterval(() => {
-            time--;
-            countdown.textContent = time;
+        let time = 5;
+        function timer() {
             if (time === 0) {
-                clearInterval(interval);
-                countdown.textContent = 'Go!';
+                countdown.textContent = "Go!";
+            } else {
+                countdown.textContent = time;
             }
-        }, 1000);
+            time--;
+            if (time >= 0) {
+                setTimeout(timer, 1000);
+            }
+        }
+
+        timer();
     });
 }
